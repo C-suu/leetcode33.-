@@ -1,6 +1,7 @@
 # leetcode33.-
 
-![Uploading image.png…]()
+<img width="1139" height="901" alt="image" src="https://github.com/user-attachments/assets/dead1f6f-91b8-4207-a592-c8d5a5ab64fd" />
+
 
 
 
