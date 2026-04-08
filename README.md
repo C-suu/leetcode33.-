@@ -39,34 +39,27 @@ class Solution:
     def search(self, nums: List[int], target: int) -> int:
         # 初始化左右指针，建立搜索的闭区间 [0, 数组最大索引]
         left, right = 0, len(nums) - 1  
-        
         # 只要左指针未超过右指针，说明区间内还有未检查的元素
         while left <= right:  
             # 计算当前搜索区间的中点索引（向下取整）
             mid = (left + right) // 2
             # 取出中点处的值，方便后续比较
             x = nums[mid]
-            
             # 若中点值恰好等于目标值，直接返回对应的索引
             if x == target:
                 return mid
-            
             # 场景一：目标值在左段，中点值在右段 -> 目标在左侧，缩小右边界
             if target > nums[-1] >= x:  
                 right = mid - 1  
-                
             # 场景二：中点值在左段，目标值在右段 -> 目标在右侧，缩小左边界
             elif x > nums[-1] >= target:  
                 left = mid + 1  
-                
             # 场景三：两者同段，且中点值大于目标值 -> 目标在左侧，缩小右边界
             elif x > target:  
                 right = mid - 1
-                
             # 场景四：两者同段，且中点值小于目标值 -> 目标在右侧，缩小左边界
             else:
-                left = mid + 1
-                
+                left = mid + 1   
         # 搜索区间全部耗尽仍未命中，返回 -1 表示不存在
         return -1
 ```
